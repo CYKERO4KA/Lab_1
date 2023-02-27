@@ -1,6 +1,4 @@
 ﻿using System.Text.Json;
-using System.Linq;
-
 namespace Lab_1
 {
     class Program
@@ -55,7 +53,6 @@ namespace Lab_1
                 Console.WriteLine(food[i]);
             }
         }
-
     }
 
     class Task2
@@ -78,15 +75,15 @@ namespace Lab_1
                 { "key1", 1 }, { "key2", 2 }
             };
         
-            foreach (var (key1, value) in values1)
+            foreach (var (key1, value1) in values1)
             {
                 foreach (var (key2, value2) in values2)
                 {
-                    if (value2 == value)
+                    if (value2 == value1)
                     {
                         if (Coincedence1 == null)
                         {
-                            Coincedence1 = $"{key1} and {key2} == {value}";
+                            Coincedence1 = $"{key1} and {key2} == {value1}";
                         }
                         else
                         {
