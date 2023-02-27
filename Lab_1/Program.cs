@@ -13,13 +13,18 @@ namespace Lab_1
 
             string json = JsonSerializer.Serialize(task2);
             Console.WriteLine(json);
+
+            Task2? restoredTask2 = JsonSerializer.Deserialize<Task2>(json);
+            Console.WriteLine(restoredTask2?.Coincedence1);
+            Console.WriteLine(restoredTask2?.Coincedence2);
             
             Task3 task3 = new Task3();
             task3.DoTask3();
-            
+
             Console.ReadKey();
         }
     }
+    
 
     class Task1
     {
@@ -58,10 +63,10 @@ namespace Lab_1
     class Task2
     {
         public string Coincedence1 { get; set; }
-
+        
         public string Coincedence2 { get; set; }
-
-        public void DoTask2()
+        
+        public async void DoTask2()
         {
             Console.WriteLine("\nTask 2:");
 
@@ -74,7 +79,8 @@ namespace Lab_1
             {
                 { "key1", 1 }, { "key2", 2 }
             };
-        
+            Dictionary<string, int> saved = new Dictionary<string, int>();
+
             foreach (var (key1, value1) in values1)
             {
                 foreach (var (key2, value2) in values2)
