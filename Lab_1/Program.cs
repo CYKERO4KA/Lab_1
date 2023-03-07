@@ -18,6 +18,8 @@ namespace Lab_1
             Console.WriteLine(restoredTask2?.Coincedence1);
             Console.WriteLine(restoredTask2?.Coincedence2);
             
+            Console.ReadKey();
+            Console.Clear();
             Task3 task3 = new Task3();
             task3.DoTask3();
 
@@ -45,7 +47,7 @@ namespace Lab_1
             Console.Write("\n");
             Console.Write("Write index: ");
             int index = Convert.ToInt32(Console.ReadLine());
-            while (index > food.Count || index < 0)
+            while (index > food.Count || index <= 0)
             {
                 Console.WriteLine("Incorrect index!");
                 Console.Write("Write index: ");
@@ -57,6 +59,9 @@ namespace Lab_1
             {
                 Console.WriteLine(food[i]);
             }
+
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 
@@ -108,13 +113,19 @@ namespace Lab_1
             Console.WriteLine("\nTask 3:");
             
             int[] numbers = {1,3,4,6,9,5,7,1,6,9,4,6 };
+            Console.Write("Unsorted: ");
+            foreach (var num in numbers)
+            {
+                Console.Write(num + " ");
+            }
 
             var filtered = from n in numbers where n%2 != 0 orderby n select n;
             var filtered2 = numbers.Where(n => n % 2 != 0).OrderBy(n => n.ToString());
 
+            Console.Write("\nSorted: ");
             foreach (var sorted in filtered2)
             {
-                Console.WriteLine(sorted);
+                Console.Write(sorted + " ");
             }
         }
     }
